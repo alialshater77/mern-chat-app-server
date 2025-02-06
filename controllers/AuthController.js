@@ -28,7 +28,7 @@ export const signup = async (req , res , next) => {
             maxAge,
             httpOnly: true,
             secure: true,
-            sameSite: "strict",
+            sameSite: "none",
             domain: "mern-chat-app-react.pages.dev"
         })
 
@@ -66,7 +66,7 @@ export const login = async (req , res , next) => {
             maxAge,
             httpOnly: true,
             secure: true,
-            sameSite: "strict",
+            sameSite: "none",
             domain: "mern-chat-app-react.pages.dev"
         })
 
@@ -197,7 +197,7 @@ export const Logout = async (req , res , next) => {
         res.cookie("jwt" , '', {
             maxAge: 1,
             secure: true,
-            sameSite: "None",
+            sameSite: "none",
             domain: "mern-chat-app-react.pages.dev"
         })
 
