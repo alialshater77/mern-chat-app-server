@@ -26,10 +26,6 @@ export const signup = async (req , res , next) => {
 
         res.cookie("jwt" , createToken(email , user?.id) , {
             maxAge,
-            httpOnly: true,
-            secure: true,
-            sameSite: "none",
-            domain: "mern-chat-app-react.pages.dev"
         })
 
         return res.status(201).json({ user : {
@@ -64,10 +60,6 @@ export const login = async (req , res , next) => {
 
         res.cookie("jwt" , createToken(email , user?.id) , {
             maxAge,
-            httpOnly: true,
-            secure: true,
-            sameSite: "none",
-            domain: "mern-chat-app-react.pages.dev"
         })
 
         return res.status(200).json({ user : {
@@ -196,9 +188,6 @@ export const Logout = async (req , res , next) => {
     try {
         res.cookie("jwt" , '', {
             maxAge: 1,
-            secure: true,
-            sameSite: "none",
-            domain: "mern-chat-app-react.pages.dev"
         })
 
         return res.status(200).send("Logout successfull.")
