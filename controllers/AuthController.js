@@ -28,7 +28,8 @@ export const signup = async (req , res , next) => {
             maxAge,
             httpOnly: true,
             secure: true,
-            sameSite: "strict"
+            sameSite: "strict",
+            domain: process.env.ORIGIN
         })
 
         return res.status(201).json({ user : {
@@ -65,7 +66,8 @@ export const login = async (req , res , next) => {
             maxAge,
             httpOnly: true,
             secure: true,
-            sameSite: "strict"
+            sameSite: "strict",
+            domain: process.env.ORIGIN
         })
 
         return res.status(200).json({ user : {
@@ -195,7 +197,8 @@ export const Logout = async (req , res , next) => {
         res.cookie("jwt" , '', {
             maxAge: 1,
             secure: true,
-            sameSite: "None"
+            sameSite: "None",
+            domain: process.env.ORIGIN
         })
 
         return res.status(200).send("Logout successfull.")
